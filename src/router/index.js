@@ -9,6 +9,22 @@ export const constantRoutes = [
     meta: {
       keepAlive: false
     }
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('@/views/home/index'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('@/views/cart/index'),
+    meta: {
+      keepAlive: false
+    }
   }
 ]
 

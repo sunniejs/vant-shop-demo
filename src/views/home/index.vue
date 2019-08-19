@@ -1,11 +1,20 @@
 <!-- home -->
 <template>
   <div>
-    <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-      <van-cell v-for="item in list" :key="item" :title="item" />
-    </van-list>
-    <float-icons padding="20 20 20 20">
-      icons
+    <div>
+      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+        <van-cell v-for="item in list" :key="item" :title="`我是你的小仙女，爱你第${item}遍`" />
+      </van-list>
+    </div>
+    <float-icons padding="10 10 60 10" class="icons-warp">
+      <div class="float-icon-item">
+        <img src="../../assets/images/home-icon.png" alt="" @click="handleIcons('home')">
+        <span>首页</span>
+      </div>
+      <div class="float-icon-item">
+        <img src="../../assets/images/cart-icon.png" alt="" @click="handleIcons('cart')">
+        <span>购物车</span>
+      </div>
     </float-icons>
   </div>
 </template>
@@ -47,6 +56,11 @@ export default {
           this.finished = true;
         }
       }, 500);
+    },
+    // 点击按钮
+    handleIcons(router) {
+      console.log('router', router)
+      this.$router.push(router)
     }
   }
 }
@@ -55,5 +69,26 @@ export default {
 h1 {
   background: red;
   width: 375px;
+}
+.icons-warp {
+  border-radius: 25px;
+  .float-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    img {
+      width: 25px;
+      height: 25px;
+      margin-bottom: 3px;
+    }
+    span {
+      font-size: 9px;
+      color: #666666;
+    }
+  }
 }
 </style>

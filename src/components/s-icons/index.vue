@@ -1,6 +1,5 @@
 <template>
   <div ref="icons" class="icons-container" :style="{'left':left+'px','top':top+'px'}">
-    <!-- 'width':itemWidth+'px','height':itemHeight+'px', -->
     <slot></slot>
   </div>
 </template>
@@ -13,14 +12,10 @@ export default {
       type: String,
       default: ''
     },
+    // 距离上有下左的安全距离
     padding: {
       type: String,
-      default: "10 10 200 10"
-    },
-    // 距离屏幕左右两侧的安全距离
-    gapWidth: {
-      type: Number,
-      default: 10
+      default: "10 10 10 10"
     },
     // 初始位置距离底部的距离
     bottom: {
@@ -36,8 +31,8 @@ export default {
       clientHeight: 0,
       itemWidth: 0,
       itemHeight: 0,
-      left: 375,
-      top: 600
+      left: null,
+      top: null
     }
   },
   computed: {
@@ -51,7 +46,6 @@ export default {
     },
     // 安全距离
     safeArea() {
-      // 0上1右2下3左
       return this.padding.split(' ')
     }
   },
@@ -70,7 +64,6 @@ export default {
       this.itemWidth = this.$refs.icons.offsetWidth
       this.itemHeight = this.$refs.icons.offsetHeight
       // 设置位置
-      //   this.left = this.clientWidth - this.itemWidth - this.gapWidth
       this.left = this.clientWidth - this.itemWidth - this.safeArea[1]
       this.top = this.clientHeight - this.itemWidth - this.bottom
       div.addEventListener('touchstart', (e) => {
@@ -91,7 +84,7 @@ export default {
         if (this.left > this.clientWidth / 2) {
           this.left = this.clientWidth - this.itemWidth - this.safeArea[1]
         } else {
-          this.left = this.safeArea[2]
+          this.left = this.safeArea[3]
         }
         // 手指放开top位置
         if (this.top < this.safeArea[0]) {
@@ -124,9 +117,9 @@ export default {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
       if (scrollTop === this.currentTop) {
         if (this.left > this.clientWidth / 2) {
-          this.left = this.clientWidth - this.itemWidth - this.gapWidth
+          this.left = this.clientWidth - this.itemWidth - this.safeArea[1]
         } else {
-          this.left = this.gapWidth
+          this.left = this.safeArea[3]
         }
         clearTimeout(this.timer)
       }
