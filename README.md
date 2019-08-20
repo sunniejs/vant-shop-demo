@@ -2,9 +2,11 @@
 
 商城常用的组件开发基于 vant ui 开发，让商城开发变得更简单
 
-以我整理的 vue 项目脚手架[vue-h5-template][2]为基础
+以我整理的 vue 项目脚手架[vue-h5-template](https://github.com/sunnie1992/vue-h5-template)为基础
 
-开发商城组件库，高度组件化[github 地址][1]
+开发商城组件库，高度组件化
+[项目介绍](https://segmentfault.com/a/1190000020113557)
+
 在这里你可以找到
 
 1.  可拖拽悬浮按钮
