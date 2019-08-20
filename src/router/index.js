@@ -19,6 +19,22 @@ export const constantRoutes = [
     }
   },
   {
+    path: '/example/icons',
+    name: 'icons',
+    component: () => import('@/views/example/icons'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
+    path: '/example/navbar',
+    name: 'navbar',
+    component: () => import('@/views/example/navbar'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
     path: '/cart',
     name: 'cart',
     component: () => import('@/views/cart/index'),
@@ -31,7 +47,7 @@ export const constantRoutes = [
 const createRouter = () =>
   new Router({
     mode: 'history', // require service support
-    base: '/app/',
+    // base: '/app/',
     scrollBehavior: () => ({ y: 0 }),
     routes: constantRoutes
   })

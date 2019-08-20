@@ -15,6 +15,7 @@
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
   },
   "dependencies": {
+    "@better-scroll/core": "^2.0.0-alpha.19",
     "axios": "0.18.0",
     "fastclick": "^1.0.6",
     "lib-flexible": "^0.3.2",
