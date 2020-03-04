@@ -1,7 +1,7 @@
 {
-  "name": "vue-h5-template",
-  "version": "2.0.0",
-  "description": "A vue h5 template with Vant UI",
+  "name": "vant-shop-demo",
+  "version": "1.0.0",
+  "description": "A shop demo with Vant UI",
   "author": "Sunnie <s406803045@163.com>",
   "private": true,
   "scripts": {
