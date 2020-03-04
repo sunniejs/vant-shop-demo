@@ -2,24 +2,36 @@
   <div class="label-nav" ref="tab-containter">
     <div class="label-scoll" id="nav" ref="nav">
       <ul class="label-wrapper" ref="tab-wrapper">
-        <li class="label-item" v-for="(item,index) in list" ref="tabitem" :key="index" @click="checkStatus(index)"
-            :class="{'active':index == checkIndex}">
-          <div class="inner">{{item.barName}}</div>
+        <li
+          class="label-item"
+          v-for="(item, index) in list"
+          ref="tabitem"
+          :key="index"
+          @click="checkStatus(index)"
+          :class="{active: index == checkIndex}"
+        >
+          <div class="inner">{{ item.barName }}</div>
         </li>
       </ul>
     </div>
-    <i class="more-bot" @click="()=>flag=!flag"></i>
+    <i class="more-bot" @click="() => (flag = !flag)"></i>
     <div class="drop-nav-list" v-if="flag">
       <div class="drop-title">
         <span class="status">请选择类目</span>
-        <i class="more-top" @click="()=>flag=!flag"></i>
+        <i class="more-top" @click="() => (flag = !flag)"></i>
       </div>
       <div class="nav-list-content">
-        <span class="nav-item" v-for="(item,index) in list" :key="index" @click="checkStatus(index,true)"
-              :class="{'active':index == checkIndex}">{{item.barName}}</span>
+        <span
+          class="nav-item"
+          v-for="(item, index) in list"
+          :key="index"
+          @click="checkStatus(index, true)"
+          :class="{active: index == checkIndex}"
+          >{{ item.barName }}</span
+        >
       </div>
     </div>
-    <div class='pop-mask' v-if="flag" @click="()=>flag=false"></div>
+    <div class="pop-mask" v-if="flag" @click="() => (flag = false)"></div>
   </div>
 </template>
 
@@ -67,11 +79,10 @@ export default {
       }
       // tab回滚
       this.scroll.scrollToElement(this.$refs.tabitem[index], 300, -100)
-      this.$emit('change', { index: index, item: this.list[index] })
-    },
+      this.$emit('change', {index: index, item: this.list[index]})
+    }
   }
 }
-
 </script>
 <style lang="scss">
 .label-nav {

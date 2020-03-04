@@ -8,11 +8,11 @@
     </div>
     <float-icons padding="10 10 60 10" class="icons-warp">
       <div class="float-icon-item">
-        <img src="../../assets/images/home-icon.png" alt="" @click="handleIcons('home')">
+        <img src="../../assets/images/home-icon.png" alt="" @click="handleIcons('home')" />
         <span>首页</span>
       </div>
       <div class="float-icon-item">
-        <img src="../../assets/images/cart-icon.png" alt="" @click="handleIcons('cart')">
+        <img src="../../assets/images/cart-icon.png" alt="" @click="handleIcons('cart')" />
         <span>购物车</span>
       </div>
     </float-icons>
@@ -20,12 +20,9 @@
 </template>
 
 <script>
-import { List, Cell } from 'vant'
 import FloatIcons from '@/components/s-icons'
 export default {
   components: {
-    'van-list': List,
-    'van-cell': Cell,
     'float-icons': FloatIcons
   },
   data() {
@@ -47,16 +44,16 @@ export default {
       // 异步更新数据
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
-          this.list.push(this.list.length + 1);
+          this.list.push(this.list.length + 1)
         }
         // 加载状态结束
-        this.loading = false;
+        this.loading = false
 
         // 数据全部加载完成
         if (this.list.length >= 40) {
-          this.finished = true;
+          this.finished = true
         }
-      }, 500);
+      }, 500)
     },
     // 点击按钮
     handleIcons(router) {
@@ -66,7 +63,7 @@ export default {
   }
 }
 </script>
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 h1 {
   background: red;
   width: 375px;

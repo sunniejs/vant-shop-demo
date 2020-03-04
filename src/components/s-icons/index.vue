@@ -1,5 +1,5 @@
 <template>
-  <div ref="icons" class="icons-container" :style="{'left':left+'px','top':top+'px'}">
+  <div ref="icons" class="icons-container" :style="{left: left + 'px', top: top + 'px'}">
     <slot></slot>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
     // 距离上有下左的安全距离
     padding: {
       type: String,
-      default: "10 10 10 10"
+      default: '10 10 10 10'
     },
     // 初始位置距离底部的距离
     bottom: {
@@ -66,10 +66,10 @@ export default {
       // 设置位置
       this.left = this.clientWidth - this.itemWidth - this.safeArea[1]
       this.top = this.clientHeight - this.itemWidth - this.bottom
-      div.addEventListener('touchstart', (e) => {
+      div.addEventListener('touchstart', e => {
         div.style.transition = 'none'
       })
-      div.addEventListener('touchmove', (e) => {
+      div.addEventListener('touchmove',e => {
         // 阻止默认动作
         e.preventDefault()
         if (e.targetTouches.length === 1) {
@@ -78,7 +78,7 @@ export default {
           this.top = touch.clientY - this.itemHeight / 2
         }
       })
-      div.addEventListener('touchend', (e) => {
+      div.addEventListener('touchend', e => {
         div.style.transition = 'all 0.3s'
         // 手指放开left位置
         if (this.left > this.clientWidth / 2) {

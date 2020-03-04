@@ -41,14 +41,21 @@ export const constantRoutes = [
     meta: {
       keepAlive: false
     }
+  },
+  {
+    path: '/example/poster',
+    name: 'poster',
+    component: () => import('@/views/example/poster'),
+    meta: {
+      title: '海报图',
+      keepAlive: false
+    }
   }
 ]
 
 const createRouter = () =>
   new Router({
-    mode: 'history', // require service support
-    // base: '/app/',
-    scrollBehavior: () => ({ y: 0 }),
+    scrollBehavior: () => ({y: 0}),
     routes: constantRoutes
   })
 

@@ -2,37 +2,30 @@
 <template>
   <div class="index-page">
     <div class="index-hd">
-      <img class="index-logo" src="../../assets/images/logo.png" alt="">
-      <div class='title-text'>Soul 商城组件</div>
+      <img class="index-logo" src="../../assets/images/logo.png" alt="" />
+      <div class="title-text">Soul 商城组件</div>
     </div>
     <div class="index-bd">
       <van-cell title="可拖拽悬浮按钮" is-link url="/example/icons" />
       <van-cell title="滚动导航" is-link to="/example/navbar" />
+      <van-cell title="生成海报图" is-link to="/example/poster" />
     </div>
-
   </div>
 </template>
-
 <script>
-import { Cell } from 'vant'
 export default {
-  components: {
-    'van-cell': Cell
-  },
+  components: {},
   data() {
-    return {
-    }
+    return {}
   },
   computed: {},
 
-  mounted() {
-  },
+  mounted() {},
 
-  methods: {
-  }
+  methods: {}
 }
 </script>
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .index-page {
   background: #f8f8f8;
   min-height: 100vh;
