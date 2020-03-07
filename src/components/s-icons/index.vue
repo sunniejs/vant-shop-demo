@@ -69,7 +69,7 @@ export default {
       div.addEventListener('touchstart', e => {
         div.style.transition = 'none'
       })
-      div.addEventListener('touchmove',e => {
+      div.addEventListener('touchmove', e => {
         // 阻止默认动作
         e.preventDefault()
         if (e.targetTouches.length === 1) {

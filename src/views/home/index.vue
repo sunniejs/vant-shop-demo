@@ -6,9 +6,10 @@
       <div class="title-text">Soul 商城组件</div>
     </div>
     <div class="index-bd">
-      <van-cell title="可拖拽悬浮按钮" is-link url="/example/icons" />
+      <van-cell title="可拖拽悬浮按钮" is-link to="/example/icons" />
       <van-cell title="滚动导航" is-link to="/example/navbar" />
       <van-cell title="生成海报图" is-link to="/example/poster" />
+      <van-cell title="返回浏览位置" is-link to="/keepalive/index" />
     </div>
   </div>
 </template>

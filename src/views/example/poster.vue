@@ -8,13 +8,13 @@
       <div class="btn-group">
         <van-button type="primary" size="small" @click="doShareActivity">点我生成海报</van-button>
       </div>
-       <div class="tips">
+      <div class="tips">
         分享商品海报图
       </div>
       <div class="btn-group">
         <van-button type="primary" size="small" @click="doShareGoods">点我生成海报</van-button>
       </div>
-       <div class="tips">
+      <div class="tips">
         分享专场海报图
       </div>
     </div>
@@ -26,6 +26,7 @@
 <script>
 import PosterPopup from '@/components/poster-popup'
 export default {
+  name: 'Poster',
   components: {
     'poster-popup': PosterPopup
   },
@@ -43,7 +44,7 @@ export default {
         shareTitle: '无印良品精选',
         specialLogo: require('../../assets/images/avatar.jpg'),
         specialDate: '03/04-03/08',
-        shareImg:  require('../../assets/images/special_img.jpg'),
+        shareImg: require('../../assets/images/special_img.jpg'),
         qrcode: 'https://github.com/sunnie1992/vue_canvas_poster'
       }
       this.posterVisible = true
@@ -74,7 +75,7 @@ export default {
 
 .app-container {
   padding: 25px 15px;
-  text-align:center;
+  text-align: center;
 }
 .title {
   width: 100%;
@@ -82,7 +83,7 @@ export default {
   text-align: left;
 }
 .btn-group {
-  margin-top:15px;
+  margin-top: 15px;
 }
 .tips {
   width: 100%;

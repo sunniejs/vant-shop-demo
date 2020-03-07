@@ -10,6 +10,7 @@
 <script>
 import NavScoller from '@/components/nav-scoller'
 export default {
+  name: 'Navbar',
   components: {
     'nav-scoller': NavScoller
   },

@@ -22,6 +22,7 @@
 <script>
 import FloatIcons from '@/components/s-icons'
 export default {
+  name: 'Icons',
   components: {
     'float-icons': FloatIcons
   },

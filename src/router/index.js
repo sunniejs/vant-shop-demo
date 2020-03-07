@@ -5,14 +5,11 @@ Vue.use(Router)
 export const constantRoutes = [
   {
     path: '/',
-    component: () => import('@/views/home/index'),
-    meta: {
-      keepAlive: false
-    }
+    redirect: '/home'
   },
   {
     path: '/home',
-    name: 'home',
+    name: 'Home',
     component: () => import('@/views/home/index'),
     meta: {
       keepAlive: false
@@ -20,7 +17,7 @@ export const constantRoutes = [
   },
   {
     path: '/example/icons',
-    name: 'icons',
+    name: 'Icons',
     component: () => import('@/views/example/icons'),
     meta: {
       keepAlive: false
@@ -28,7 +25,7 @@ export const constantRoutes = [
   },
   {
     path: '/example/navbar',
-    name: 'navbar',
+    name: 'Navbar',
     component: () => import('@/views/example/navbar'),
     meta: {
       keepAlive: false
@@ -36,7 +33,7 @@ export const constantRoutes = [
   },
   {
     path: '/cart',
-    name: 'cart',
+    name: 'Cart',
     component: () => import('@/views/cart/index'),
     meta: {
       keepAlive: false
@@ -44,10 +41,37 @@ export const constantRoutes = [
   },
   {
     path: '/example/poster',
-    name: 'poster',
+    name: 'Poster',
     component: () => import('@/views/example/poster'),
     meta: {
       title: '海报图',
+      keepAlive: false
+    }
+  },
+  {
+    path: '/keepalive/index',
+    name: 'Index',
+    component: () => import('@/views/keepalive/index'),
+    meta: {
+      title: '首页',
+      keepAlive: true
+    }
+  },
+  {
+    path: '/keepalive/list',
+    name: 'List',
+    component: () => import('@/views/keepalive/list'),
+    meta: {
+      title: '商品列表页',
+      keepAlive: true
+    }
+  },
+  {
+    path: '/keepalive/detail',
+    name: 'Detail',
+    component: () => import('@/views/keepalive/detail'),
+    meta: {
+      title: '商品详情页',
       keepAlive: false
     }
   }
