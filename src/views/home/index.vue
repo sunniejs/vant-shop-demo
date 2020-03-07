@@ -3,7 +3,7 @@
   <div class="index-page">
     <div class="index-hd">
       <img class="index-logo" src="../../assets/images/logo.png" alt="" />
-      <div class="title-text">Soul 商城组件</div>
+      <div class="title-text">Sol 商城组件</div>
     </div>
     <div class="index-bd">
       <van-cell title="可拖拽悬浮按钮" is-link to="/example/icons" />
