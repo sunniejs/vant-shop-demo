@@ -8,11 +8,11 @@
     </div>
     <float-icons padding="10 10 60 10" class="icons-warp">
       <div class="float-icon-item">
-        <img src="../../assets/images/home-icon.png" alt="" @click="handleIcons('home')" />
+        <img src="../../assets/images/home-icon.png" alt="" @click="handleIcons('/home')" />
         <span>首页</span>
       </div>
       <div class="float-icon-item">
-        <img src="../../assets/images/cart-icon.png" alt="" @click="handleIcons('cart')" />
+        <img src="../../assets/images/cart-icon.png" alt="" @click="handleIcons('/cart')" />
         <span>购物车</span>
       </div>
     </float-icons>
