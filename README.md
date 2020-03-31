@@ -2,7 +2,7 @@
 
 商城常用的组件开发基于 vant ui 开发，让商城开发变得更简单
 
-以我整理的 vue 项目脚手架[vue-h5-template](https://github.com/sunnie1992/vue-h5-template)为基础
+以我整理的 vue 项目脚手架[vue-h5-template](https://github.com/sunniejs/vue-h5-template)为基础
 
 开发商城组件库，高度组件化
 [项目介绍](https://segmentfault.com/a/1190000020113557)
@@ -77,7 +77,7 @@ vue 开发手机端悬浮按钮实现，可以拖拽，滚动的时候收到里�
 
 有什么问题可以提 issue 或扫描微信二维码跟我联系，项目持续优化，加群获取最新更新消息
 
-[提 issue](https://github.com/sunnie1992/vant-shop-demo/issues/new)
+[提 issue](https://github.com/sunniejs/vant-shop-demo/issues/new)
 
 ## 关于我
 
