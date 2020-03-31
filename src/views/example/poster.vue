@@ -45,7 +45,7 @@ export default {
         specialLogo: require('../../assets/images/avatar.jpg'),
         specialDate: '03/04-03/08',
         shareImg: require('../../assets/images/special_img.jpg'),
-        qrcode: 'https://github.com/sunnie1992/vue_canvas_poster'
+        qrcode: 'https://github.com/sunniejs/vue_canvas_poster'
       }
       this.posterVisible = true
     },
@@ -57,7 +57,7 @@ export default {
         goodsName: '玫瑰金',
         goodsMoney: '18000.00',
         goodsPrice: '19999.00',
-        qrcode: 'https://github.com/sunnie1992/vue_canvas_poster'
+        qrcode: 'https://github.com/sunniejs/vue_canvas_poster'
       }
       this.posterVisible = true
     },
