@@ -7,6 +7,6 @@ export function login(params) {
     url: '/ruleCommon/queryrule',
     method: 'post',
     data: qs.stringify(params),
-    hideloading:true  // 隐藏loading
+    hideloading: true // 隐藏loading
   })
 }

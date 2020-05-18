@@ -1,10 +1,24 @@
 <template>
   <div>
-    <van-popup v-model="visible"  @close="close" :close-on-click-overlay="false" position="center" class="poster-popup">
-       <div class="canvas-close" @click="close"></div>
+    <van-popup v-model="visible" @close="close" :close-on-click-overlay="false" position="center" class="poster-popup">
+      <div :class="['canvas-close', swiper ? 'swiper-close' : '']" @click="close"></div>
+      <!-- 多张生成海报图 -->
+      <van-swipe
+        v-if="swiper"
+        :width="swiperWidth"
+        :initial-swipe="0"
+        :show-indicators="false"
+        class="poster-swipe"
+        :autoplay="0"
+        @change="swiperChange"
+      >
+        <van-swipe-item v-for="(item, index) in canvasPosterList" :key="index">
+          <img class="share-image" :class="{active: index === current}" :src="item" alt="" />
+        </van-swipe-item>
+      </van-swipe>
       <!-- 单张图片生成海报图 -->
-      <div class="poster-inner">
-        <img :src="src" alt="" class="share-image" />
+      <div v-else class="poster-inner">
+        <img v-if="!drawing" :src="src" alt="" class="share-image" />
       </div>
     </van-popup>
     <!-- canvas -->
@@ -16,7 +30,7 @@
 import {vueCanvasPoster} from 'vue-canvas-poster'
 // 统一管理生成json模板
 import drawCanvas from '@/utils/drawer'
-import {equal} from '@/utils'
+import {equal, validDataUrl} from '@/utils'
 export default {
   name: 'PosterPopup',
   components: {
@@ -32,7 +46,15 @@ export default {
       value: false
     }
   },
-
+  computed: {
+    swiperWidth() {
+      return (document.body.clientWidth / 375) * 305
+    },
+    // 多图
+    swiper() {
+      return this.info.shareImgs && this.info.shareImgs.length > 0
+    }
+  },
   watch: {
     info: {
       handler: 'handleRender',
@@ -49,12 +71,17 @@ export default {
         // common info
         name: 'sunnie',
         nickname: '花花'
-      }
+      },
+      params: {},
+      current: 0,
+      canvasPosterList: [], // 海报数组，不能使用shareData污染之后会重新渲染
+      same: false
     }
   },
   deactivated() {
     this.drawing = false
     this.src = ''
+    this.canvasPosterList = []
   },
   methods: {
     // 重新渲染
@@ -64,13 +91,51 @@ export default {
         this.paintStart(newVal)
       }
     },
-    // 调用对应模板
+    // 开始
     paintStart() {
-      if (this.drawing) return false
-      this.drawing = true
+      const {shareImgs} = this.info
       // 合并一些公共参数
-      const params = Object.assign({}, this.info, this.commonInfo)
-      this.template = drawCanvas(params)
+      this.params = Object.assign({}, this.info, this.commonInfo)
+      // 多张图片分享
+      if (this.swiper) {
+        if (!shareImgs || shareImgs.length <= 1) {
+          throw new Error('shareImgs 不存在或数量不符合')
+        }
+        // 重置index
+        this.current = 0
+        // 生成空数组
+        this.canvasPosterList = new Array(shareImgs.length)
+        // 多图
+        this.drawSwiperCanvas()
+      } else {
+        if (this.drawing) return false
+        this.drawing = true
+        this.$toast({
+          type: 'loading',
+          forbidClick: true
+        })
+        this.template = drawCanvas(this.params)
+      }
+    },
+    // 多张图
+    drawSwiperCanvas() {
+      const currentImg = this.canvasPosterList[this.current]
+      //base64为生成过的图片， 不是base64图片再生成
+      if (!validDataUrl(currentImg)) {
+        if (this.drawing) return false
+        this.drawing = true
+        this.$toast({
+          type: 'loading',
+          forbidClick: true
+        })
+        const params = Object.assign({}, this.params, {current: this.current})
+        this.template = drawCanvas(params)
+      }
+    },
+    // 滑动分享图
+    swiperChange(index) {
+      this.current = index
+      this.drawSwiperCanvas()
     },
     // 关闭弹窗
     close() {
@@ -80,7 +145,13 @@ export default {
     // 保存
     success(src) {
       this.drawing = false
-      this.src = src
+      this.$toast.clear()
+      // 多图
+      if (this.swiper) {
+        this.$set(this.canvasPosterList, this.current, src)
+      } else {
+        this.src = src
+      }
     },
     // 失败
     fail() {
@@ -98,6 +169,27 @@ export default {
 .poster-popup {
   background: none;
   padding: 50px 0;
+  .poster-swipe {
+    width: 375px;
+    height: 400px;
+    padding-left: 50px;
+    box-sizing: border-box;
+    .van-swipe-item {
+      width: 275px;
+      display: flex;
+      align-items: center;
+      .share-image {
+        min-height: 350px;
+        background: #fff;
+        &.active {
+          width: 275px !important;
+        }
+        border-radius: 10px;
+        width: 240px;
+        height: auto;
+      }
+    }
+  }
   .poster-inner {
     overflow: hidden;
     height: auto;

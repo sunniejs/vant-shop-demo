@@ -15,7 +15,10 @@
         <van-button type="primary" size="small" @click="doShareGoods">点我生成海报</van-button>
       </div>
       <div class="tips">
-        分享专场海报图
+        生成多张海报图
+      </div>
+      <div class="btn-group">
+        <van-button type="primary" size="small" @click="doShareSwiper">点我生成海报</van-button>
       </div>
     </div>
     <!-- 海报图弹窗 -->
@@ -33,7 +36,8 @@ export default {
   data() {
     return {
       shareData: {},
-      posterVisible: false
+      posterVisible: false,
+      swiper: false
     }
   },
   methods: {
@@ -61,10 +65,32 @@ export default {
       }
       this.posterVisible = true
     },
+    // 生成多张海报图
+    doShareSwiper() {
+      // 多张  shareImgs 多图通过 shareImgs设置
+      this.shareData = {
+        type: 'swiper',
+        shareImgs: [
+          {
+            shareImg: require('../../assets/images/share/s-home-share-0.png'),
+            title: '花花'
+          },
+          {
+            shareImg: require('../../assets/images/share/s-home-share-1.png'),
+            title: '小仙女'
+          },
+          {
+            shareImg: require('../../assets/images/share/s-home-share-2.png'),
+            title: '花花小仙女'
+          }
+        ],
+        qrcode: 'https://github.com/sunniejs/vue_canvas_poster'
+      }
+      this.posterVisible = true
+    },
     // 分享
     closePoster() {
       this.posterVisible = false
-      this.shareData = {}
     }
   }
 }

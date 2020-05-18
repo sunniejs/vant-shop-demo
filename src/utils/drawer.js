@@ -4,6 +4,8 @@ export default function drawCanvas(data) {
       return drawGoodsPoster(data)
     case 'activity':
       return drawActivity(data)
+    case 'swiper':
+      return drawSwiper(data)
   }
 }
 // 分享商品
@@ -213,5 +215,160 @@ function drawActivity(activity) {
         }
       }
     ]
+  }
+}
+// 多张图
+function drawSwiper(swiper) {
+  let posWidth = 600 // 图片默认宽度
+  let posHeight = 860 // 图片默认宽度
+  let views = []
+  switch (swiper.current) {
+    case 0:
+      views = [
+        {
+          type: 'image',
+          url: swiper.shareImgs[swiper.current].shareImg,
+          css: {
+            width: `${posWidth}px`,
+            height: `${posHeight}px`
+          }
+        },
+        {
+          type: 'rect',
+          css: {
+            left: '20px',
+            bottom: '304px',
+            color: '#EA3247',
+            width: '560px',
+            height: '56px',
+            borderRadius: '28px'
+          }
+        },
+        {
+          type: 'text',
+          text: swiper.shareImgs[swiper.current].title,
+          css: {
+            maxLines: 1,
+            width: '400px',
+            left: '300px',
+            align: 'center',
+            textAlign: 'center',
+            fontSize: '34px',
+            bottom: '318px',
+            color: '#fff',
+            fontWeight: 'bold'
+          }
+        },
+        {
+          type: 'qrcode',
+          content: swiper.qrcode,
+          css: {
+            bottom: '102px',
+            left: '100px',
+            color: '#000',
+            width: '170px',
+            height: '170px'
+          }
+        }
+      ]
+
+      break
+    case 1:
+      views = [
+        {
+          type: 'image',
+          url: swiper.shareImgs[swiper.current].shareImg,
+          css: {
+            width: `${posWidth}px`,
+            height: `${posHeight}px`
+          }
+        },
+        {
+          type: 'rect',
+          css: {
+            left: '35px',
+            top: '62px',
+            color: '#41029B',
+            width: '530px',
+            height: '58px',
+            borderRadius: '28px'
+          }
+        },
+        {
+          type: 'text',
+          text: swiper.shareImgs[swiper.current].title,
+          css: {
+            maxLines: 1,
+            width: '400px',
+            left: '300px',
+            align: 'center',
+            textAlign: 'center',
+            fontSize: '34px',
+            top: '70px',
+            color: '#fff',
+            fontWeight: 'bold'
+          }
+        },
+        {
+          type: 'qrcode',
+          content: swiper.qrcode,
+          css: {
+            bottom: '165px',
+            left: '100px',
+            color: '#000',
+            width: '170px',
+            height: '170px'
+          }
+        }
+      ]
+
+      break
+    case 2:
+      views = [
+        {
+          type: 'image',
+          url: swiper.shareImgs[swiper.current].shareImg,
+          css: {
+            width: `${posWidth}px`,
+            height: `${posHeight}px`
+          }
+        },
+        {
+          type: 'text',
+          text: swiper.shareImgs[swiper.current].title,
+          css: {
+            maxLines: 1,
+            width: '400px',
+            left: '300px',
+            align: 'center',
+            textAlign: 'center',
+            fontSize: '34px',
+            top: '30px',
+            color: '#EDF4E4',
+            fontWeight: 'bold'
+          }
+        },
+        {
+          type: 'qrcode',
+          content: swiper.qrcode,
+          css: {
+            bottom: '232px',
+            left: '100px',
+            color: '#000',
+            width: '170px',
+            height: '170px'
+          }
+        }
+      ]
+
+      break
+    default:
+      break
+  }
+  return {
+    width: `${posWidth}px`,
+    height: `${posHeight}px`,
+    background: '#fff',
+    views: views
   }
 }

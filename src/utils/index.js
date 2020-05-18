@@ -155,3 +155,8 @@ export function equal(a, b) {
 
   return a !== a && b !== b
 }
+// 是否是base64图片
+export function validDataUrl(s) {
+  var regex = /^\s*data:([a-z]+\/[a-z0-9-+.]+(;[a-z-]+=[a-z0-9-]+)?)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s]*?)\s*$/i
+  return regex.test(s)
+}
