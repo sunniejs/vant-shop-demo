@@ -3,15 +3,8 @@
     <van-popup v-model="visible" @close="close" :close-on-click-overlay="false" position="center" class="poster-popup">
       <div :class="['canvas-close', swiper ? 'swiper-close' : '']" @click="close"></div>
       <!-- 多张生成海报图 -->
-      <van-swipe
-        v-if="swiper"
-        :width="swiperWidth"
-        :initial-swipe="0"
-        :show-indicators="false"
-        class="poster-swipe"
-        :autoplay="0"
-        @change="swiperChange"
-      >
+      <van-swipe v-if="swiper" :width="swiperWidth" :initial-swipe="0" :show-indicators="false" class="poster-swipe" :autoplay="0"
+                 @change="swiperChange">
         <van-swipe-item v-for="(item, index) in canvasPosterList" :key="index">
           <img class="share-image" :class="{active: index === current}" :src="item" alt="" />
         </van-swipe-item>
@@ -27,10 +20,10 @@
 </template>
 <script>
 // 引入 npm 包
-import {vueCanvasPoster} from 'vue-canvas-poster'
+import { vueCanvasPoster } from 'vue-canvas-poster'
 // 统一管理生成json模板
 import drawCanvas from '@/utils/drawer'
-import {equal, validDataUrl} from '@/utils'
+import { equal, validDataUrl } from '@/utils'
 export default {
   name: 'PosterPopup',
   components: {
@@ -39,7 +32,9 @@ export default {
   props: {
     info: {
       type: Object,
-      value: {}
+      default: function() {
+        return {}
+      }
     },
     visible: {
       type: Boolean,
@@ -93,7 +88,7 @@ export default {
     },
     // 开始
     paintStart() {
-      const {shareImgs} = this.info
+      const { shareImgs } = this.info
       // 合并一些公共参数
       this.params = Object.assign({}, this.info, this.commonInfo)
       // 多张图片分享
@@ -128,7 +123,7 @@ export default {
           type: 'loading',
           forbidClick: true
         })
-        const params = Object.assign({}, this.params, {current: this.current})
+        const params = Object.assign({}, this.params, { current: this.current })
         this.template = drawCanvas(params)
       }
     },

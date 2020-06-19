@@ -30,7 +30,7 @@ export default {
   methods: {
     // 去列表页
     goList() {
-      this.$router.push({name: 'List'})
+      this.$router.push({ name: 'List' })
     },
 
     onLoad() {

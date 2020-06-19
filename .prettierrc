@@ -1,5 +1,5 @@
 {
-  "printWidth": 120,
+  "printWidth": 400,
   "tabWidth": 2,
   "singleQuote": true,
   "trailingComma": "none",
@@ -8,7 +8,7 @@
   "wrap_attributes": "auto",
   "proseWrap": "always",
   "arrowParens": "avoid",
-  "bracketSpacing": false,
+  "bracketSpacing": true,
   "jsxBracketSameLine": true,
   "useTabs": false,
   "overrides": [

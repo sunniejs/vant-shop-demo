@@ -1,5 +1,5 @@
 <template>
-  <div ref="icons" class="icons-container" :style="{left: left + 'px', top: top + 'px'}">
+  <div ref="icons" class="icons-container" :style="{ left: left + 'px', top: top + 'px' }">
     <slot></slot>
   </div>
 </template>
@@ -66,7 +66,7 @@ export default {
       // 设置位置
       this.left = this.clientWidth - this.itemWidth - this.safeArea[1]
       this.top = this.clientHeight - this.itemWidth - this.bottom
-      div.addEventListener('touchstart', e => {
+      div.addEventListener('touchstart', () => {
         div.style.transition = 'none'
       })
       div.addEventListener('touchmove', e => {
@@ -78,7 +78,7 @@ export default {
           this.top = touch.clientY - this.itemHeight / 2
         }
       })
-      div.addEventListener('touchend', e => {
+      div.addEventListener('touchend', () => {
         div.style.transition = 'all 0.3s'
         // 手指放开left位置
         if (this.left > this.clientWidth / 2) {

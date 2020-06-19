@@ -14,6 +14,15 @@
 3.  生成海报图
 4.  vue keep-alive 返回浏览位置
 
+## 本地运行
+
+```bash
+
+git clone https://github.com/sunniejs/vant-shop-demo.git
+npm run serve
+
+```
+
 ## 线上体验
 
 ![iterm](static/demo.png)

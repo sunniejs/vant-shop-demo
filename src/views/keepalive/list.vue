@@ -43,7 +43,7 @@ export default {
   methods: {
     // 去详情页
     goDetail() {
-      this.$router.push({name: 'Detail'})
+      this.$router.push({ name: 'Detail' })
     },
 
     onLoad() {
