@@ -15,19 +15,19 @@
       </div>
     </van-popup>
     <!-- canvas -->
-    <vueCanvasPoster class="poster" :painting="template" @success="success" @fail="fail" />
+    <vue-canvas-poster class="poster" :painting="template" @success="success" @fail="fail" />
   </div>
 </template>
 <script>
 // 引入 npm 包
-import { vueCanvasPoster } from 'vue-canvas-poster'
+import { VueCanvasPoster } from 'vue-canvas-poster'
 // 统一管理生成json模板
 import drawCanvas from '@/utils/drawer'
 import { equal, validDataUrl } from '@/utils'
 export default {
   name: 'PosterPopup',
   components: {
-    vueCanvasPoster
+    VueCanvasPoster
   },
   props: {
     info: {

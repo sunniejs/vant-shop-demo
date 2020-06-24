@@ -4,8 +4,7 @@
 
 以我整理的 vue 项目脚手架[vue-h5-template](https://github.com/sunniejs/vue-h5-template)为基础
 
-开发商城组件库，高度组件化
-[项目介绍](https://segmentfault.com/a/1190000020113557)
+开发商城组件库，高度组件化 [项目介绍](https://segmentfault.com/a/1190000020113557)
 
 在这里你可以找到
 
@@ -25,13 +24,17 @@ npm run serve
 
 ## 线上体验
 
-![iterm](static/demo.png)
+<p>
+ <img src="./static/demo.png" width="320" style="display:inline;">
+ </p>
 
 ## 可拖拽悬浮按钮
 
 vue 开发手机端悬浮按钮实现，可以拖拽，滚动的时候收到里边，不影响视线
 
-![iterm](static/2.gif)
+<p>
+ <img src="./static/2.gif" width="320" style="display:inline;">
+ </p>
 
 ## 参数
 
@@ -42,9 +45,7 @@ vue 开发手机端悬浮按钮实现，可以拖拽，滚动的时候收到里�
 
 ## 注意
 
-如果滚滚动的时候收到里边，需要穿 scoller 参数
-比如：
-你的滚动列表外层 div 设置 id
+如果滚滚动的时候收到里边，需要穿 scoller 参数比如：你的滚动列表外层 div 设置 id
 
 ```html
 <div id="loadmore">
@@ -66,9 +67,7 @@ vue 开发手机端悬浮按钮实现，可以拖拽，滚动的时候收到里�
 
 基于 better-scroll 开发，横向滚动导航栏
 
-##使用
-将组件复制到你的组件目录下，传导航数组 list
-点击切换 navbar 的时候触发 change 方法，
+##使用将组件复制到你的组件目录下，传导航数组 list 点击切换 navbar 的时候触发 change 方法，
 
 ## 参数
 
@@ -93,6 +92,7 @@ vue 开发手机端悬浮按钮实现，可以拖拽，滚动的时候收到里�
 获取更多技术相关文章，关注公众号”前端女塾“。
 
 回复加群，即可加入”前端仙女群“
+
  <p>
   <img src="./static/gognzhonghao.jpg" width="256" style="display:inline;">
 </p>
